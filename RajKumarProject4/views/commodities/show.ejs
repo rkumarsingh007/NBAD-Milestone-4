@@ -1,0 +1,29 @@
+<%- include('../partials/header.ejs') %>
+<div class="content">
+    <div class="center-container">
+        <div class="event-heading">
+            <h3 class="dis-in-bl"><%= commodity.name %></h3>
+        </div>
+        
+        <div class="wrapper">
+            <div class="event-image-div"><img class="mlr-50 event-image" src="<%= commodity.image %>" alt="Logo"></div>
+            <div class="detail">
+                <h4>Swapper: <%= commodity.sellerName %></h4>
+                <p><%= commodity.date %></p>
+                <p><%= commodity.location %></p>
+            </div>
+        </div>
+        <div class="description">
+            <h3>Details</h3>
+            <p><%= commodity.details %></p> 
+            <% if(b) {%>
+                <form >
+                    <button class="button update-btn" type="submit" formmethod="GET" formaction="/commodities/<%= commodity.id %>/edit">Edit</button>
+                    <button class="button delete-btn" type="submit" formmethod="POST" formaction="/commodities/<%= commodity.id %>?_method=DELETE">Delete</button>
+                </form>
+            <%}%>
+            
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer.ejs') %>
